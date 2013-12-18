@@ -18,4 +18,6 @@ Several executions give the following results:
 |Java     |Oracle Java 6 32-bit| 1060 |
 |Java     |Oracle Java 7 32-bit| 1050 |
 |JavaScript | V8 3.23.0 32-bit| 1700 |
+|Pascal | Delphi 7 32-bit| 630 |
+|Pascal | FreePascal 2.6.2 32-bit | 730 |
 
