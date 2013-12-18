@@ -16,8 +16,7 @@ function pushDown(pos, n) {
     }
 }
 
-function main()
-{
+function main() {
     var start = Date.now();
 
     for (var i = 0; i < N; i++) {
@@ -28,10 +27,12 @@ function main()
         pushDown(i, N);
 
     var n = N;
+    
     while (n > 1) {
         var t = h[0];
         h[0] = h[n - 1];
         h[n - 1] = t;
+
         n--;
         pushDown(0, n);
     }
@@ -41,7 +42,7 @@ function main()
             throw new RuntimeException("h[i] != i");
         }
     }
-    
+
     print("Done in " + (Date.now() - start));
 }
 
