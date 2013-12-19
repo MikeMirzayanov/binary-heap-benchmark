@@ -26,4 +26,4 @@ Several executions give the following results:
 |Ruby | Ruby 2.0.0p353 (2013-11-22, i386-mingw32) 32-bit | 345000 |
 |Scala | Scala 2.10.3 (over Oracle Java 7 32-bit) | 1550 |
 |Go | Go 1.2 32-bit | 1780 |
-|D | DMD v2.064.2 32-bit | 2100 |
+|D | DMD v2.064.2 32-bit | 800 |
