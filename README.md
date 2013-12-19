@@ -20,4 +20,6 @@ Several executions give the following results:
 |JavaScript | V8 3.23.0 32-bit| 1700 |
 |Pascal | Delphi 7 32-bit| 630 |
 |Pascal | FreePascal 2.6.2 32-bit | 730 |
+|Python 2 | Python 2.7.4 32-bit | 12500 |
+|Python 3 | Python 3.3.2 32-bit | 20000 |
 
