@@ -1,8 +1,6 @@
 import std.algorithm;
-import std.conv;
 import std.datetime;
 import std.exception;
-import std.range;
 import std.stdio;
 
 immutable int N = 10_000_000;
