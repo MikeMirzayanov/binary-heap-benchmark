@@ -24,4 +24,5 @@ Several executions give the following results:
 |Python 3 | Python 3.3.2 32-bit | 20000 |
 |Ruby | Ruby 1.9.3p0 (2011-10-30, i386-mingw32) 32-bit | 520000 |
 |Scala | Scala 2.9.1 (over Oracle Java 7 32-bit) | 2060 |
+|Go | Go 1.1.1 32-bit | 1825 |
 
