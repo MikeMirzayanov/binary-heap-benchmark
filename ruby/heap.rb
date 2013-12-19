@@ -7,9 +7,9 @@ def pushDown(pos, n)
     if (j+1 < n) and ($h[j+1] > $h[j])
       j += 1
     end
-    if $h[pos] >= $h[j]
-      break
-    end
+
+    break unless $h[pos] < $h[j]
+
     $h[pos], $h[j] = $h[j], $h[pos]
     pos = j
   end
@@ -34,9 +34,7 @@ def main
   end
 
   N.times do |i|
-    if $h[i] != i
-      raise "h[i] != i"
-    end
+    raise "h[i] != i" unless $h[i] == i
   end
 
   puts "Done in #{((Time.now - start) * 1000).to_i}"
