@@ -19,10 +19,10 @@ def pushDown(pos, n):
 def main():
     start = time.clock()
 
-    for i in range(N):
+    for i in xrange(N):
         h[i] = i
 
-    for i in range(N//2, -1, -1):
+    for i in xrange(N//2, -1, -1):
         pushDown(i, N)
 
     n = N
@@ -31,7 +31,7 @@ def main():
         n -= 1
         pushDown(0, n)
 
-    for i in range(N):
+    for i in xrange(N):
         if h[i] != i:
             raise Exception("h[i] != i")
 
