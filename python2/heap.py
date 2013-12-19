@@ -17,7 +17,7 @@ def pushDown(pos, n):
         pos = j
 
 def main():
-    start = time.time()
+    start = time.clock()
 
     for i in range(N):
         h[i] = i
@@ -35,7 +35,7 @@ def main():
         if h[i] != i:
             raise Exception("h[i] != i")
 
-    print("Done in %f" % ((time.time() - start) * 1000))
+    print("Done in %f" % ((time.clock() - start) * 1000))
 
 if __name__ == '__main__':
     main()
