@@ -22,4 +22,5 @@ Several executions give the following results:
 |Pascal | FreePascal 2.6.2 32-bit | 730 |
 |Python 2 | Python 2.7.4 32-bit | 12500 |
 |Python 3 | Python 3.3.2 32-bit | 20000 |
+|Ruby | ruby 1.9.3p0 (2011-10-30, i386-mingw32) 32-bit | 520000 |
 
