@@ -11,7 +11,7 @@ You may use http://codeforces.com/problemset/customtest to run a code.
 
 Several executions give the following results:
 
-|Language|Compiler|Running time|
+|Language|Compiler|Running time, ms|
 |--------|--------|------------|
 |C++     |MinGW 4.7.2 32-bit| 630 |
 |C++     |MS VS 2010 32-bit| 650 |
@@ -24,5 +24,6 @@ Several executions give the following results:
 |Python 3 | Python 3.3.2 32-bit | 20000 |
 |Ruby | Ruby 1.9.3p0 (2011-10-30, i386-mingw32) 32-bit | 520000 |
 |Ruby | Ruby 2.0.0p353 (2013-11-22, i386-mingw32) 32-bit | 345000 |
-|Scala | Scala 2.10.3 (over Oracle Java 7 32-bit) | 950 |
-|Go | Go 1.1.1 32-bit | 1825 |
+|Scala | Scala 2.10.3 (over Oracle Java 7 32-bit) | 1550 |
+|Go | Go 1.2 32-bit | 1780 |
+|D | DMD v2.064.2 32-bit | 2100 |
