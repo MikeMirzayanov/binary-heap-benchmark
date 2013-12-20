@@ -1,45 +1,41 @@
-N = 10000000.freeze
-$h = Array.new
+require 'benchmark'
 
-def pushDown(pos, n)
-  while 2*pos + 1 < n
-    j = 2*pos + 1
-    if (j+1 < n) and ($h[j+1] > $h[j])
+def push_down(heap, pos, n)
+  while (2 * pos + 1) < n
+    j = 2 * pos + 1
+
+    if (j + 1 < n) and (heap[j + 1] > heap[j])
       j += 1
     end
 
-    break unless $h[pos] < $h[j]
+    break unless heap[pos] < heap[j]
 
-    $h[pos], $h[j] = $h[j], $h[pos]
+    tmp = heap[pos]
+    heap[pos] = heap[j]
+    heap[j] = tmp
+
     pos = j
   end
 end
 
-def main
-  start = Time.now
 
-  N.times do |i|
-    $h << i
+def heapsort(size)
+  heap = (0...size).to_a
+
+  (size / 2).downto(0) do |i|
+    push_down heap, i, size
   end
 
-  (N/2).downto(0) do |i|
-    pushDown i, N
+  (size - 1).downto(1) do |n|
+    tmp = heap[0]
+    heap[0] = heap[n]
+    heap[n] = tmp
+
+    push_down heap, 0, n
   end
 
-  n = N
-  while n > 1
-    $h[0], $h[n-1] = $h[n-1], $h[0]
-    n -= 1
-    pushDown 0, n
-  end
-
-  N.times do |i|
-    raise "h[i] != i" unless $h[i] == i
-  end
-
-  puts "Done in #{((Time.now - start) * 1000).to_i}"
+  raise "Array not sorted" unless heap.each.with_index.all? { |element, index| element == index }
 end
 
-begin
-  main
-end
+n = 10_000_000
+puts Benchmark.measure { heapsort n }
