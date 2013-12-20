@@ -5,9 +5,9 @@ import (
   "time"
 )
 
-const N int = 10000000
+const N = 10000000
 
-func pushDown(h *[N]int, pos, n int) {
+func pushDown(h []int, pos, n int) {
   for 2*pos + 1 < n {
     j := 2 * pos + 1
     if j + 1 < n && h[j+1] > h[j] {
@@ -25,20 +25,20 @@ func pushDown(h *[N]int, pos, n int) {
 func main() {
   start := time.Now()
 
-  var h [N]int
+  h := make([]int, N)
   for i := 0; i < N; i++ {
     h[i] = i
   }
 
   for i := N/2; i >= 0; i-- {
-    pushDown(&h, i, N)
+    pushDown(h, i, N)
   }
 
   n := N
   for n > 1 {
     n--
     h[0], h[n] = h[n], h[0]
-    pushDown(&h, 0, n)
+    pushDown(h, 0, n)
   }
 
   for i := 0; i < N; i++ {
