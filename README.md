@@ -27,3 +27,5 @@ Several executions give the following results:
 |Scala | Scala 2.10.3 (over Oracle Java 7 32-bit) | 1550 |
 |Go | Go 1.2 32-bit | 1780 |
 |D | DMD v2.064.2 32-bit | 800 |
+|C# | Mono 2.10.9 32-bit | 850 |
+|C# | MS CSC .Net 4.5.1 64-bit | 850 |

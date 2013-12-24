@@ -1,47 +1,41 @@
 #!/usr/bin/perl
-
-use strict;
+ 
 use warnings;
-
-use Time::HiRes 'clock';
-
+use strict;
+use Time::HiRes qw(gettimeofday);
+ 
+my $start_time = gettimeofday;
+ 
+my $N = 10000000;
+my @a;
+ 
 sub pushDown {
-	my $pos = shift;
-	my $n = shift;
-	my $h = shift;
-
-	while (2 * $pos + 1 < $n) {
-		my $j = 2 * $pos + 1;
-		if ($j + 1 < $n && $h->[$j + 1] > $h->[$j]) {
-			$j++;
-		}
-		if ($h->[$pos] >= $h->[$j]) {
-			last;
-		}
-		($h->[$pos], $h->[$j]) = ($h->[$j], $h->[$pos]);
-		$pos = $j;
-	}
+    my ($pos, $N) = @_;
+    while (2 * $pos + 1 < $N) {
+        my $j = 2 * $pos + 1;
+        if ($j + 1 < $N && $a[$j + 1] > $a[$j]) {
+            ++$j;
+        }  
+        last if $a[$pos] >= $a[$j];
+        @a[$pos, $j] = @a[$j, $pos];
+        $pos = $j;
+    }  
 }
-
-my $ticktock = clock();
-
-my $N = 10_000_000;
-my @h = (0 .. ($N - 1));
-
-for (my $i = $N / 2; $i >= 0; $i--) {
-	pushDown($i, $N, \@h);
-}
-
+ 
+@a = 0 .. $N-1;
+ 
+pushDown($_, $N) for reverse 0 .. $N / 2;
+ 
 my $n = $N;
-
 while ($n > 1) {
-	$n--;
-	($h[0], $h[$n]) = ($h[$n], $h[0]);
-	pushDown(0, $n, \@h);
+    @a[0, $n - 1] = @a[$n - 1, 0];
+    --$n;
+    pushDown(0, $n);
 }
-
-for (my $i = 0; $i < $N; $i++) {
-	print("$i != $h[$i]\n") and die if ($h[$i] != $i);
+ 
+while (my ($id, $key) = each @a) {
+    die unless $id == $key;
 }
-
-print("Done in " . (clock() - $ticktock) . "\n");
+ 
+my $end_time = gettimeofday;
+print "Done in ", int(1000 * ($end_time - $start_time)), " ms\n";
