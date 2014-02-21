@@ -1,6 +1,6 @@
 var N = 10000000;
 
-var h = new Array(N);
+var h = new Uint32Array(N);
 
 function pushDown(pos, n) {
     while (2 * pos + 1 < n) {
