@@ -1,4 +1,5 @@
-use std::time::duration::Duration;
+extern crate time;
+use time::Duration;
 
 fn main() {
     let duration = Duration::span(|| {
