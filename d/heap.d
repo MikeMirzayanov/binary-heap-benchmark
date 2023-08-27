@@ -1,5 +1,5 @@
 import std.algorithm;
-import std.datetime;
+import std.datetime.stopwatch;
 import std.exception;
 import std.stdio;
 
@@ -55,5 +55,5 @@ void main ()
 
 	sw.stop ();
 
-	writeln (sw.peek ().msecs);
+	writeln (sw.peek.total!"msecs");
 }
